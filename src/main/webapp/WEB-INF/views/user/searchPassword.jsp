@@ -56,6 +56,24 @@
                 )
             }
 
+            /**
+             * 이메일 인증번호 확인 버튼 ( 야매 )
+             * document.ready() 되자마자 이벤트 핸들링 걸어줘야 돌아감
+             */
+            $("#btnEmailCheck").on("click", function () { // 버튼 클릭했을때, 발생되는 이벤트 생성함(onclick 이벤트와 동일함)
+                if (f.authNumber.value != emailAuthNumber) {
+                    alert("이메일 인증번호가 일치하지 않습니다.");
+                    f.authNumber.focus();
+                    return;
+                }
+
+                if (f.authNumber.value == emailAuthNumber) {
+                    alert("이메일 인증번호가 일치합니다.");
+                    f.authNumber.focus();
+                    return;
+                }
+            })
+
             // 비밀번호 찾기
             $("#btnSearchPassword").on("click", function () {
                 let f = document.getElementById("f") // form 태그
@@ -90,20 +108,8 @@
                     return;
                 }
 
-                // 이메일 인증번호 확인 버튼 ( 야매 )
-                $("#btnEmailCheck").on("click", function () { // 버튼 클릭했을때, 발생되는 이벤트 생성함(onclick 이벤트와 동일함)
-                    if (f.authNumber.value != emailAuthNumber) {
-                        alert("이메일 인증번호가 일치하지 않습니다.");
-                        f.authNumber.focus();
-                        return;
-                    }
+                // 여기서 이벤트핸들링 되있던거 위치 바꿈
 
-                    if (f.authNumber.value == emailAuthNumber) {
-                        alert("이메일 인증번호가 일치합니다.");
-                        f.authNumber.focus();
-                        return;
-                    }
-                })
 
                 f.method = "post"; // 비밀번호 찾기 정보 전송 방식
                 f.action = "/user/searchPasswordProc" // 비밀번호 찾기 URL
