@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="kopo.poly.persistance.mapper.IMailMapper">
+
+    <!-- 메일 발신 리스트 쿼리 -->
+    <select id="getMailList" resultType="MailDTO">
+        SELECT MAIL_SEQ, TO_MAIL, TITLE, CONTENTS,
+               TO_CHAR(SEND_TIME, 'YYYY-MM-DD HH24:MM:SS') AS SEND_TIME
+        FROM MAIL_INFO
+        ORDER BY MAIL_SEQ, SEND_TIME DESC
+    </select>
+    <!-- 당초에 긁어온 코드에서는 ORDER BY MAIL_SEQ, SEND_TIME DESC로 되어있었는데 역순 정렬이 안 됨 -->
+    <!-- 그래서 SEND_TIME을 빼고 ORDER BY MAIL_SEQ DESC로 하니까 역순정렬이 됨 이게 원래 구문이 맞는건지 모르겠음 일단 됨 -->
+
+    <!-- 발신이력 등록 쿼리 -->
+    <insert id="insertMailInfo" parameterType="MailDTO">
+        INSERT INTO MAIL_INFO
+        (
+            MAIL_SEQ, TO_MAIL, TITLE, CONTENTS, SEND_TIME
+        )
+        VALUES(
+                      (SELECT NVL(MAX(A.MAIL_SEQ),0)+1 FROM MAIL_INFO A),
+                      #{toMail}, #{title}, #{contents}, SYSDATE
+              )
+    </insert>
+
+</mapper>
