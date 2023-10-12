@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34c26381-3ff3-4f59-96a6-9410611e1ae8" name="Changes" comment="2023.10.10 깃 성공">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/controller/MovieController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/dto/MovieDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mapper/IMovieMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/service/IMovieService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/MovieService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MovieMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/movie/collectMovieRank.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/movie/movieList.jsp" afterDir="false" />
+    <list default="true" id="34c26381-3ff3-4f59-96a6-9410611e1ae8" name="Changes" comment="2023.10.10 CGV 웹 크롤링">
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/controller/FoodController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/controller/WeatherController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/dto/FoodDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/dto/WeatherDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/service/IFoodService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/service/IWeatherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/FoodService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/WeatherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/food/todayFood.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/weather/toDayWeather" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/weather/toDayWeather.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/67200e07-13b0-4c1e-8ceb-f8bd42bd6528.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/67200e07-13b0-4c1e-8ceb-f8bd42bd6528.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/searchPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/searchPassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/SpringBootOracleNewApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kopo/poly/SpringBootOracleNewApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +35,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="20717ec4-16d1-4021-9781-8d3b9e8d694b" />
+        <option name="url" value="https://github.com/chna8137/SpringBootOracle_New.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,11 +73,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/data7/Desktop/잠시/SpringBootOracle",
+    "last_opened_file_path": "C:/SpringBootOracle_New",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "c505a69ec179afb91b357bbbd1b0e60d",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -109,7 +125,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696905554060</updated>
-      <workItem from="1696905555212" duration="13018000" />
+      <workItem from="1696905555212" duration="31251000" />
+      <workItem from="1697111490560" duration="4436000" />
     </task>
     <task id="LOCAL-00001" summary="하하하하하">
       <created>1696908305071</created>
@@ -125,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696908342575</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2023.10.10 CGV 웹 크롤링">
+      <created>1696920557836</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696920557836</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +169,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="하하하하하" />
     <MESSAGE value="2023.10.10 깃 성공" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023.10.10 깃 성공" />
+    <MESSAGE value="2023.10.10 CGV 웹 크롤링" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023.10.10 CGV 웹 크롤링" />
   </component>
 </project>
