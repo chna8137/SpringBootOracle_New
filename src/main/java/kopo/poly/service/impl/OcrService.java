@@ -1,21 +1,49 @@
 package kopo.poly.service.impl;
 
 import kopo.poly.dto.OcrDTO;
+import kopo.poly.persistance.mapper.IOcrMapper;
 import kopo.poly.service.IOcrService;
 import kopo.poly.util.CmmUtil;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class OcrService implements IOcrService {
 
+    private final IOcrMapper ocrMapper;
+
+    /**OCR 리스트*/
+    @Override
+    public List<OcrDTO> getOcrList() throws Exception {
+
+        log.info(this.getClass().getName() + ".getOcrList Start!!");
+
+        return ocrMapper.getOcrList();
+    }
+
+    /**OCR 등록*/
+    @Transactional
+    @Override
+    public void insertOcrInfo(OcrDTO pDTO) throws Exception{
+
+        log.info(this.getClass().getName() + ".insertOcrInfo Start!!");
+
+        ocrMapper.insertOcrInfo(pDTO);
+
+    }
+
+    /** 이미지 읽어오기*/
     @Value("${ocr.model.data}")
     private String ocrModel;
 

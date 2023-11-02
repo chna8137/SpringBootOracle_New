@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -38,6 +40,7 @@ public class OcrController {
 
     @PostMapping(value = "readImage")
     public String readImage(ModelMap model, @RequestParam(value = "fileupload") MultipartFile mf) throws Exception {
+        //multipart = 다수의 부분
 
         log.info(this.getClass().getName() + ".readImage Start!");
 
@@ -84,6 +87,7 @@ public class OcrController {
 
             // ocrService.getReadforImageText(pDTO) 결과를 Null 값 체크하여 rDTO 객체에 저장하기
             OcrDTO rDTO = Optional.ofNullable(ocrService.getReadforImageText(pDTO)).orElseGet(OcrDTO::new);
+            ocrService.insertOcrInfo(pDTO);
 
             res = CmmUtil.nvl(rDTO.getTextFromImage()); // 인식 결과
 
@@ -98,5 +102,21 @@ public class OcrController {
         log.info(this.getClass().getName() + ".readImage End!");
 
         return "ocr/readImage";
+    }
+
+    @GetMapping(value = "ocrList")
+    public String ocrList(ModelMap modelMap) throws Exception {
+
+        log.info(this.getClass().getName() + ".ocrList Start!");
+
+        // 수집된 OCR 정보 조회
+        List<OcrDTO> rList = Optional.ofNullable(ocrService.getOcrList()).orElseGet(ArrayList::new);
+
+        // 조회 결과 JSP에 전달
+        modelMap.addAttribute("rList", rList);
+
+        log.info(this.getClass().getName() + "ocrList End!");
+
+        return "/ocr/ocrList";
     }
 }
